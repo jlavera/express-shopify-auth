@@ -9,6 +9,7 @@ export default function validateHmac(
 ) {
   const { hmac: _hmac, signature: _signature, ...map } = query;
 
+  console.log('all: ', hmac, secret, query);
   const orderedMap = Object.keys(map)
     .sort((value1, value2) => value1.localeCompare(value2))
     .reduce((accum, key) => {
@@ -21,5 +22,7 @@ export default function validateHmac(
     .update(message)
     .digest('hex');
 
+
+  console.log('message: ', message);
   return timingSafeEqual(Buffer.from(generatedHash), Buffer.from(hmac));
 }

@@ -83,7 +83,7 @@ export class ShopifyAuthMiddleware {
     }
 
     use(req: Request, res: Response, next: () => void): void {
-        // ctx.cookies.secure = true; // TODO: change this accordingly
+        // req.cookies.secure = true; // TODO: change this accordingly
         console.log('L90 in middleware');
 
         // TODO: all these paths were req.path. Change them back to match koa-shopify-auth
