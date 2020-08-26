@@ -11,8 +11,6 @@ export default function oAuthQueryString(
   options: OAuthStartOptions,
   callbackPath: string,
 ): string {
-  const { hostname } = req;
-
   const { scopes = [], apiKey, accessMode } = options;
 
   const requestNonce = crypto.randomBytes(16).toString('base64');
@@ -25,7 +23,7 @@ export default function oAuthQueryString(
     state: requestNonce,
     scope: scopes.join(', '),
     client_id: apiKey,
-    redirect_uri: `https://${hostname}${callbackPath}`,
+    redirect_uri: `https://${options.hostname}${callbackPath}`,
   };
 
   if (accessMode === 'online') {
