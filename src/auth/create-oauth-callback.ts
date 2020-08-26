@@ -29,6 +29,7 @@ export default function createOAuthCallback(config: AuthConfig) {
 
     if (validateHmac(hmac, secret, query) === false) {
       res.status(400).send(Error.InvalidHmac)
+      return;
     }
 
     const accessTokenQuery = querystring.stringify({
