@@ -26,6 +26,7 @@
   "dependencies": {
     "@shopify/network": "^1.4.7",
     "compose-middleware": "^5.0.1",
+    "fetch": "^1.1.0",
     "nonce": "^1.0.4"
   },
   "devDependencies": {
@@ -44,7 +45,6 @@
     "typescript": "^3.9.5"
   },
   "peerDependencies": {
-    "isomorphic-fetch": "^2.2.1",
     "cookie-session": "^2.0.0-rc.1"
   }
 }
