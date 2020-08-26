@@ -1,4 +1,5 @@
 import { Method, Header, StatusCode } from '@shopify/network';
+import fetch from 'node-fetch';
 
 import { NextFunction } from '../types';
 import { TEST_COOKIE_NAME, TOP_LEVEL_OAUTH_COOKIE_NAME } from '../index';

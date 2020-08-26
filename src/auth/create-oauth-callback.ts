@@ -1,4 +1,5 @@
 import querystring from 'querystring';
+import fetch from 'node-fetch';
 
 import { AuthConfig, Request } from '../types';
 
