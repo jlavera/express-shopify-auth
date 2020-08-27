@@ -13,6 +13,7 @@ export default function createOAuthCallback(config: AuthConfig) {
     const { code, hmac, shop, state: nonce } = query;
     const { apiKey, secret, afterAuth } = config;
 
+    console.log('cookies', JSON.stringify(cookies, null, 2));
     if (nonce == null || cookies['shopifyNonce'] !== nonce) {
       res.status(403).send(Error.NonceMatchFailed)
       return;
