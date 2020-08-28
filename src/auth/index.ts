@@ -37,7 +37,6 @@ export class ShopifyAuthMiddleware {
     enableCookiesPath: string;
 
     constructor(options: OAuthStartOptions) {
-        console.log("L43 ShopifyAuthMiddleware const");
         const DEFAULT_PREFIX = '';
         this.config = {
             scopes: [],
@@ -84,7 +83,6 @@ export class ShopifyAuthMiddleware {
 
     use(req: Request, res: Response, next: () => void): void {
         // req.cookies.secure = true; // TODO: change this accordingly
-        console.log('L90 in middleware');
 
         // TODO: all these paths were req.path. Change them back to match koa-shopify-auth
         // we'll obv need to fix this as well. Issue is that `prefix` in nest is removed

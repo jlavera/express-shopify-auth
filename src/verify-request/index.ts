@@ -7,7 +7,6 @@ import { Response } from 'express';
 export class VerifyAuthMiddleware {
     routes: Routes;
     constructor(givenOptions: Options = {}) {
-        console.log("L12 VerifyAuthMiddleware const");
         this.routes = {
             authRoute: '/auth',
             fallbackRoute: '/auth',
@@ -15,8 +14,6 @@ export class VerifyAuthMiddleware {
         };
     }
     use(_req: Request, _res: Response, next: () => void) {
-        console.log('L20 in VerifyAuthMiddleware');
-
         // loginAgainIfDifferentShop(routes, next);
 
         verifyToken(this.routes);

@@ -1,6 +1,6 @@
 {
   "name": "@jlavera/express-shopify-auth",
-  "version": "3.1.66-beta.11",
+  "version": "3.1.66-beta.13",
   "license": "MIT",
   "description": "",
   "main": "dist/src/index.js",

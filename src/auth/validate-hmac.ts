@@ -1,5 +1,3 @@
-import * as querystring from 'querystring';
-
 import { createHmac, timingSafeEqual } from 'crypto';
 
 export default function validateHmac(
@@ -9,20 +7,14 @@ export default function validateHmac(
 ) {
   const { hmac: _hmac, signature: _signature, ...map } = query;
 
-  console.log('all: ', hmac, secret, query);
-  const orderedMap = Object.keys(map)
+  const message = Object.keys(map)
     .sort((value1, value2) => value1.localeCompare(value2))
-    .reduce((accum, key) => {
-      accum[key] = map[key];
-      return accum;
-    }, {} as any);
+    .map(key => `${key}=${map[key]}`)
+    .join('&')
 
-  const message = querystring.stringify(orderedMap);
   const generatedHash = createHmac('sha256', secret)
     .update(message)
     .digest('hex');
 
-
-  console.log('message: ', message);
   return timingSafeEqual(Buffer.from(generatedHash), Buffer.from(hmac));
 }
