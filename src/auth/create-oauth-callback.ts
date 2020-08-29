@@ -68,7 +68,7 @@ export default function createOAuthCallback(config: AuthConfig) {
     // };
 
     if (afterAuth) {
-      await afterAuth(req, res);
+      await afterAuth(req, res, accessToken);
     }
   };
 }

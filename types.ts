@@ -9,7 +9,7 @@ export interface AuthConfig {
   apiKey: string;
   myShopifyDomain?: string;
   accessMode?: 'online' | 'offline';
-  afterAuth?(req: Request, res: Response): void;
+  afterAuth?(req: Request, res: Response, accessToken: string): void;
 }
 
 export type OAuthStartOptionsPrefixType = string;
